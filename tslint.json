@@ -11,18 +11,22 @@
         "interface-name": false,
         "semicolon": [true, "always"],
         "ordered-imports": false,
+        "quotemark": [true, "single", "jsx-double"],
+        "no-console": false,
         "import-group-ordering": {
             "severity": "warning",
             "options": {
                 "imports-groups": [
                     {"name": "dependencies"},
                     {"name": "other"},
-                    {"name": "redux"},
+                    {"name": "library"},
                     {"name": "config"},
-                    {"name": "common"},
+                    {"name": "redux"},
+                    {"name": "constant"},
+                    {"name": "style"},
                     {"name": "page"},
-                    {"name": "component"},
-                    {"name": "style"}
+                    {"name": "container"},
+                    {"name": "component"}
                 ],
                 "matching-rules": [
                     {
@@ -38,13 +42,23 @@
                     },
                     {
                         "type": "project",
-                        "matches": "^(lib|constants)",
-                        "imports-group": "common"
+                        "matches": "^(libs)",
+                        "imports-group": "library"
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(constants)",
+                        "imports-group": "constant"
                     },
                     {
                         "type": "project",
                         "matches": "^(store)",
                         "imports-group": "redux"
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(containers)",
+                        "imports-group": "container"
                     },
                     {
                         "type": "project",

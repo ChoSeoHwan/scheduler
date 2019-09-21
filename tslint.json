@@ -1,0 +1,74 @@
+{
+    "defaultSeverity": "error",
+    "extends": [
+        "tslint:recommended",
+        "tslint-config-prettier",
+        "tslint-import-group-ordering"
+    ],
+    "jsRules": {},
+    "rules": {
+        "switch-default": false,
+        "interface-name": false,
+        "semicolon": [true, "always"],
+        "ordered-imports": false,
+        "import-group-ordering": {
+            "severity": "warning",
+            "options": {
+                "imports-groups": [
+                    {"name": "dependencies"},
+                    {"name": "other"},
+                    {"name": "redux"},
+                    {"name": "config"},
+                    {"name": "common"},
+                    {"name": "page"},
+                    {"name": "component"},
+                    {"name": "style"}
+                ],
+                "matching-rules": [
+                    {
+                        "type": "dependencies",
+                        "imports-group": "dependencies",
+                        "disable-native-nodejs-modules": true,
+                        "from-package.json": true
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(config)",
+                        "imports-group": "config"
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(lib|constants)",
+                        "imports-group": "common"
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(store)",
+                        "imports-group": "redux"
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(pages)",
+                        "imports-group": "page"
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(components)",
+                        "imports-group": "component"
+                    },
+                    {
+                        "type": "project",
+                        "matches": "^(styles)",
+                        "imports-group": "style"
+                    },
+                    {
+                        "type": "project",
+                        "matches": ".*",
+                        "imports-group": "other"
+                    }
+                ]
+            }
+        }
+    },
+    "rulesDirectory": []
+}

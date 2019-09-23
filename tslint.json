@@ -13,6 +13,7 @@
         "ordered-imports": false,
         "quotemark": [true, "single", "jsx-double"],
         "no-console": false,
+        "object-literal-sort-keys": false,
         "import-group-ordering": {
             "severity": "warning",
             "options": {
@@ -26,6 +27,7 @@
                     {"name": "style"},
                     {"name": "page"},
                     {"name": "container"},
+                    {"name": "module"},
                     {"name": "component"}
                 ],
                 "matching-rules": [
@@ -57,13 +59,18 @@
                     },
                     {
                         "type": "project",
+                        "matches": "^(pages)",
+                        "imports-group": "page"
+                    },
+                    {
+                        "type": "project",
                         "matches": "^(containers)",
                         "imports-group": "container"
                     },
                     {
                         "type": "project",
-                        "matches": "^(pages)",
-                        "imports-group": "page"
+                        "matches": "^(modules)",
+                        "imports-group": "module"
                     },
                     {
                         "type": "project",

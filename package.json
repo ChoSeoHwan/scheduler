@@ -12,6 +12,7 @@
     "react-router-dom": "^5.0.1",
     "react-scripts": "3.1.2",
     "styled-components": "^4.3.2",
+    "styled-icons": "^8.4.2",
     "tslint-import-group-ordering": "^2.1.2",
     "typescript": "3.6.3"
   },
@@ -38,8 +39,10 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/react": "^9.1.4",
     "@types/react-router-dom": "^4.3.5",
     "@types/styled-components": "^4.1.19",
+    "jest-dom": "^4.0.0",
     "prettier": "^1.18.2",
     "tslint": "^5.20.0",
     "tslint-config-prettier": "^1.18.0"

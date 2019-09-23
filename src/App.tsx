@@ -1,9 +1,9 @@
 import React from 'react';
 import { BrowserRouter } from 'react-router-dom';
 
-import GlobalStyle from 'styles/common';
+import { GlobalStyle } from 'styles/common';
 
-import Main from 'pages/Main';
+import Main from 'containers/Main';
 
 const App: React.FC = () => {
     return (

@@ -1,6 +1,6 @@
-import { createGlobalStyle } from 'styled-components';
+import styled, { createGlobalStyle } from 'styled-components';
 
-const GlobalStyle = createGlobalStyle`
+export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
   
   * {
@@ -8,19 +8,31 @@ const GlobalStyle = createGlobalStyle`
     user-select: none;
   }
   
-  html, body  {
-    color: #2a2a2a;
-    font-size: 14px;
-    font-family: 'Nanum Gothic', sans-serif;
+  html  {
+    font-size: 62.5%;
   }
   
   body  {
     height: 100vh;
     display: flex;
     flex-direction: column;
-    flex-wrap: nowrap;
+        
+    color: #2a2a2a;
+    font-size: 1.4rem;
+    font-family: 'Nanum Gothic', sans-serif;
+    
+    & > #root   {
+        display: flex;
+        flex-direction: column;
+        flex: 1;
+        flex-wrap: nowrap;
+    }
   }
   
 `;
 
-export default GlobalStyle;
+export const ContentWrap = styled.div`
+    display: flex;
+    flex: 1;
+    flex-direction: row;
+`;

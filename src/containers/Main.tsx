@@ -6,7 +6,7 @@ import Scheduler from 'containers/scheduler/Scheduler';
 const Main: React.FC = () => {
     return (
         <Switch>
-            <Route page="/scheduler" component={Scheduler} />
+            <Route path="/scheduler" component={Scheduler} />
             <Redirect to="/scheduler" />
         </Switch>
     );

@@ -1,4 +1,4 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 import { Menu } from 'styles/icons/boxicons-regular.icons';
 import { SpeakerNotes } from 'styles/icons/material.icons';
@@ -15,26 +15,37 @@ export const HeaderWrap = styled.header`
     border-bottom: 1px solid ${({ theme }) => theme.lineColor};
 
     background-color: ${({ theme }) => theme.headerBgColor};
+`;
 
-    ${Menu} {
-        display: flex;
-        flex: 0 2.5rem;
-        flex-direction: row;
-        height: 2.5rem;
+interface MenuButtonStatus {
+    open: boolean;
+}
 
-        border-radius: 50%;
+export const MenuButton = styled(Menu)<MenuButtonStatus>`
+    display: flex;
+    flex: 0 2.5rem;
+    flex-direction: row;
+    height: 2.5rem;
 
-        padding: 1.5rem;
+    border-radius: 50%;
 
-        cursor: pointer;
+    padding: 1.5rem;
 
-        transition: color 0.3s, background 0.3s;
+    cursor: pointer;
 
-        &:hover {
+    transition: color 0.3s, background 0.3s;
+
+    &:hover {
+        background: ${({ theme }) => theme.hoverBgColor};
+        color: ${({ theme }) => theme.hoverColor};
+    }
+
+    ${({ open }) =>
+        !open &&
+        css`
             background: ${({ theme }) => theme.hoverBgColor};
             color: ${({ theme }) => theme.hoverColor};
-        }
-    }
+        `}
 `;
 
 export const CommonHeader = styled.div`

@@ -4,9 +4,9 @@ import { ThemeProvider } from 'styled-components';
 import { ContentWrap } from 'styles/common';
 import { SchedulerTheme } from 'styles/theme/scheduler.theme';
 
-import Content from 'containers/Content';
 import LeftPanel from 'containers/LeftPanel';
 import Header from 'containers/scheduler/Header';
+import TestList from 'containers/scheduler/TestList';
 
 const Scheduler: React.FC = () => {
     return (
@@ -15,7 +15,7 @@ const Scheduler: React.FC = () => {
                 <Header />
                 <ContentWrap>
                     <LeftPanel />
-                    <Content />
+                    <TestList />
                 </ContentWrap>
             </Fragment>
         </ThemeProvider>

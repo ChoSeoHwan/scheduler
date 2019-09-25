@@ -7,6 +7,10 @@ interface LeftPanelWrapState {
 export const LeftPanelWrap = styled.nav<LeftPanelWrapState>`
     display: flex;
     flex: 0 ${({ open }) => (open ? '25rem' : '8rem')};
+    flex-wrap: wrap;
+    box-sizing: border-box;
+    
+    border-right: 1px solid ${({ theme }) => theme.lineColor}
+    
     transition: flex 0.3s;
-    background: blue;
 `;

@@ -18,7 +18,6 @@ const TestList: React.FC = () => {
     );
 
     useEffect(() => {
-        console.log('didmount');
         dispatch(TestAction.fetchTestData('asc', 1));
     }, []);
 
@@ -26,7 +25,6 @@ const TestList: React.FC = () => {
         dispatch(TestAction.fetchTestData('desc', 1));
     };
 
-    console.log('render', loading, data);
     return (
         <Content>
             <button onClick={handleChangeOrder}>desc로 변경</button>

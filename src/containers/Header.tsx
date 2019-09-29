@@ -33,7 +33,10 @@ const Header: React.FC<Props> = ({ page, children }) => {
     return (
         <HeaderWrap>
             <CommonHeader>
-                <MenuButton open={leftPanel} onClick={handleLeftPanelStatus}>
+                <MenuButton
+                    data-testid="menu-button"
+                    open={leftPanel}
+                    onClick={handleLeftPanelStatus}>
                     Menu
                 </MenuButton>
                 <Title>

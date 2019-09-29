@@ -9,7 +9,11 @@ const LeftPanel: React.FC = () => {
     const leftPanel = useSelector(
         (state: StoreState) => state.PageStatusReducer.leftPanel
     );
-    return <LeftPanelWrap open={leftPanel}>leftPanel</LeftPanelWrap>;
+    return (
+        <LeftPanelWrap data-testid="left-panel" open={leftPanel}>
+            leftPanel
+        </LeftPanelWrap>
+    );
 };
 
 export default LeftPanel;

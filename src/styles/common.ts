@@ -1,4 +1,4 @@
-import styled, { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 
 export const GlobalStyle = createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Nanum+Gothic');
@@ -29,10 +29,4 @@ export const GlobalStyle = createGlobalStyle`
     }
   }
   
-`;
-
-export const ContentWrap = styled.div`
-    display: flex;
-    flex: 1;
-    flex-direction: row;
 `;

@@ -1,23 +1,24 @@
-import React, { Fragment } from 'react';
+import React from 'react';
 import { ThemeProvider } from 'styled-components';
 
-import { ContentWrap } from 'styles/common';
 import { SchedulerTheme } from 'styles/theme/scheduler.theme';
 
-import LeftPanel from 'containers/LeftPanel';
+import Content from 'containers/common/Content';
+import ContentBox from 'containers/common/ContentBox';
+import LeftPanel from 'containers/common/LeftPanel';
+import PageWrap from 'containers/common/PageWrap';
 import Header from 'containers/scheduler/Header';
-import TestList from 'containers/scheduler/TestList';
 
 const Scheduler: React.FC = () => {
     return (
         <ThemeProvider theme={SchedulerTheme}>
-            <Fragment>
+            <PageWrap>
                 <Header />
-                <ContentWrap>
+                <ContentBox>
                     <LeftPanel />
-                    <TestList />
-                </ContentWrap>
-            </Fragment>
+                    <Content />
+                </ContentBox>
+            </PageWrap>
         </ThemeProvider>
     );
 };

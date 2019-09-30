@@ -5,47 +5,12 @@ import { SpeakerNotes } from 'styles/icons/material.icons';
 
 export const HeaderWrap = styled.header`
     display: flex;
-    flex: 0 6.5rem;
+    flex: 0 5rem;
     flex-direction: row;
 
     box-sizing: border-box;
 
-    height: 6.5rem;
-
-    border-bottom: 1px solid ${({ theme }) => theme.lineColor};
-
-    background-color: ${({ theme }) => theme.headerBgColor};
-`;
-
-interface MenuButtonStatus {
-    open: boolean;
-}
-
-export const MenuButton = styled(Menu)<MenuButtonStatus>`
-    display: flex;
-    flex: 0 2.5rem;
-    flex-direction: row;
-    height: 2.5rem;
-
-    border-radius: 50%;
-
-    padding: 1.5rem;
-
-    cursor: pointer;
-
-    transition: color 0.3s, background 0.3s;
-
-    &:hover {
-        background: ${({ theme }) => theme.hoverBgColor};
-        color: ${({ theme }) => theme.hoverColor};
-    }
-
-    ${({ open }) =>
-        !open &&
-        css`
-            background: ${({ theme }) => theme.hoverBgColor};
-            color: ${({ theme }) => theme.hoverColor};
-        `}
+    background-color: ${({ theme }) => theme.header.bgColor};
 `;
 
 export const CommonHeader = styled.div`
@@ -54,8 +19,41 @@ export const CommonHeader = styled.div`
     flex: 0 25rem;
     align-items: center;
     height: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
     box-sizing: border-box;
+`;
+
+interface MenuButtonStatus {
+    open: boolean;
+}
+
+export const MenuButton = styled(Menu)<MenuButtonStatus>`
+    display: flex;
+    flex: 0 2rem;
+    flex-direction: row;
+    height: 2rem;
+    margin-right: 0.5rem;
+    padding: 1rem;
+
+    background-color: ${({ theme }) => theme.header.iconBgColor};
+
+    border-radius: 0.5rem;
+
+    cursor: pointer;
+
+    transition: color 0.3s, background 0.3s, border-radius 0.3s;
+
+    &:hover {
+        background: ${({ theme }) => theme.header.menuBtn.hoverBgColor};
+        color: ${({ theme }) => theme.header.menuBtn.hoverColor};
+    }
+
+    ${({ open }) =>
+        !open &&
+        css`
+            color: ${({ theme }) => theme.header.menuBtn.hoverColor};
+            border-radius: 50%;
+        `}
 `;
 
 export const Title = styled.h1`
@@ -64,17 +62,20 @@ export const Title = styled.h1`
     flex-direction: row;
     align-items: center;
     height: 100%;
-
     box-sizing: border-box;
+    padding: .5rem;
+    
+    background-color: ${({ theme }) => theme.header.iconBgColor};
+    border-radius: .5rem; 
 
     color: ${({ theme }) => theme.titleColor}
-    font-size: 2rem;
+    font-size: 1.7rem;
     font-weight: normal;
     
     ${SpeakerNotes} {
+        display: flex;
+        flex: 0 2.8rem;
         color: ${({ theme }) => theme.iconColor}
-        width: 3.5rem;
-        height: 3.5rem;
         padding-right: 0.5rem;
     }
 `;
@@ -85,6 +86,6 @@ export const ContentHeader = styled.div`
     flex: 1;
     align-items: center;
     height: 100%;
-    padding: 1rem;
+    padding: 0.5rem;
     box-sizing: border-box;
 `;

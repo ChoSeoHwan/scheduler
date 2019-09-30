@@ -1,7 +1,10 @@
 import React from 'react';
 import { withRouter, RouteComponentProps } from 'react-router';
+import styled from 'styled-components';
 
-import { LocationInfoWrap } from 'styles/components/LocationInfo';
+const LocationInfoWrap = styled.div`
+    display: none;
+`;
 
 const LocationInfo: React.FC<RouteComponentProps> = ({ location }) => {
     return (

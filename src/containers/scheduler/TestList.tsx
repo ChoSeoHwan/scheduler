@@ -4,7 +4,7 @@ import { useDispatch, useSelector, shallowEqual } from 'react-redux';
 import { StoreState } from 'store';
 import { TestAction } from 'store/actions';
 
-import Content from 'containers/Content';
+import Content from 'containers/common/Content';
 
 const TestList: React.FC = () => {
     const dispatch = useDispatch();

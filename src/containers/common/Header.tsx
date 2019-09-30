@@ -12,7 +12,7 @@ import {
     CommonHeader,
     ContentHeader,
     MenuButton
-} from 'styles/containers/Header';
+} from 'styles/containers/common.Header';
 import { SpeakerNotes } from 'styles/icons/material.icons';
 
 interface Props {
@@ -43,7 +43,7 @@ const Header: React.FC<Props> = ({ page, children }) => {
                     {page === Pages.SCHEDULER && (
                         <Fragment>
                             <SpeakerNotes>일정</SpeakerNotes>
-                            <span>일정</span>
+                            <span>Scheduler</span>
                         </Fragment>
                     )}
                 </Title>

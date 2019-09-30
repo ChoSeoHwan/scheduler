@@ -11,13 +11,14 @@ describe('Scheduler test', () => {
 
         it('헤더 세팅 테스트', () => {
             const { getByText } = renderRouter();
-            getByText('일정');
+            getByText('Scheduler');
         });
 
         it('LeftPanel 세팅 테스트', () => {
             const { getByTestId, getByText } = renderRouter();
 
-            getByText('배경 변경'); // 일정 등록 버튼 체크
+            getByText('go to Calendar'); // 캘린더로 이동
+            getByText('Setting'); // 세팅
             getByTestId('calendar'); // 캘린더 컴포넌트 체크
         });
     });

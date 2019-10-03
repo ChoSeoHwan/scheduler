@@ -5,7 +5,7 @@ import { SchedulerTheme } from 'styles/theme/scheduler.theme';
 
 import Content from 'containers/common/Content';
 import ContentBox from 'containers/common/ContentBox';
-import LeftPanel from 'containers/common/LeftPanel';
+import LeftPanel from 'containers/scheduler/LeftPanel';
 import PageWrap from 'containers/common/PageWrap';
 import Header from 'containers/scheduler/Header';
 

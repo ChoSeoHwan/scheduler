@@ -1,36 +1,72 @@
-import React from 'react';
+import React, { ReactNode, useCallback, useMemo, useState } from 'react';
 import { useSelector } from 'react-redux';
-import styled from 'styled-components';
 
 import { StoreState } from 'store';
 
-interface LeftPanelWrapState {
-    open: boolean;
+import { Process } from 'constants/common';
+
+import {
+    LeftPanelPage,
+    LeftPanelWrap
+} from 'styles/containers/common.LeftPanel';
+
+interface LeftPanelState {
+    children?: (
+        goToPage?: (page: string) => () => void,
+        goToBack?: () => void
+    ) => Record<string, ReactNode>;
 }
 
-const LeftPanelWrap = styled.nav<LeftPanelWrapState>`
-    display: flex;
-    flex: 0 ${({ open }) => (open ? '25rem' : '8rem')};
-    flex-wrap: wrap;
-    flex-direction: column;
-
-    box-sizing: border-box;
-
-    background-color: ${({ theme, open }) =>
-        open ? theme.leftPanel.bgColor : theme.leftPanel.closeBgColor};
-    box-shadow: ${({ open }) => (open ? '1rem 0 2rem -2rem black' : 'none')};
-
-    transition: flex 0.3s, background-color 0.3s, box-shadow 0.3s;
-`;
-
-const LeftPanel: React.FC = ({ children }) => {
+const LeftPanel: React.FC<LeftPanelState> = ({ children }) => {
     const leftPanel = useSelector(
         (state: StoreState) => state.PageStatusReducer.leftPanel
     );
 
+    const [history, setHistory] = useState<string[]>(['main']); // 현재 까지 페이지 이동된 history
+    const [status, setStatus] = useState<Process>(Process.CURRENT); // 현재 페이지로 이동한 액션 종류
+
+    /**
+     * 다음 페이지로 이동
+     * @param page
+     */
+    const goToPage = useCallback(
+        (page: string) => () => {
+            if (!pageList[page]) {
+                return;
+            }
+
+            setHistory([...history, page]);
+            setStatus(Process.NEXT);
+        },
+        [history]
+    );
+
+    /**
+     * 이전 페이지로 이동
+     */
+    const goToBack = useCallback(() => {
+        if (history.length <= 1) {
+            return;
+        }
+
+        setHistory(history.slice(0, history.length - 1));
+        setStatus(Process.PREV);
+    }, [history]);
+
+    // LeftPanel 안에 들어갈 페이지 리스트
+    const pageList: Record<string, ReactNode> = useMemo(
+        () => Object.assign({ main: null }, children(goToPage, goToBack)),
+        [goToPage, goToBack]
+    );
+
+    // 현재 페이지
+    const page = useMemo(() => history[history.length - 1], [history]);
+
     return (
         <LeftPanelWrap data-testid="left-panel" open={leftPanel}>
-            {children}
+            <LeftPanelPage key={page} status={status}>
+                {pageList[page] || null}
+            </LeftPanelPage>
         </LeftPanelWrap>
     );
 };

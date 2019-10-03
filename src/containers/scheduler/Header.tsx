@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Pages } from 'constants/Common';
+import { Pages } from 'constants/common';
 
 import CommonHeader from 'containers/common/Header';
 

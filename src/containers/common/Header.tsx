@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { StoreState } from 'store';
 import { PageStatusAction } from 'store/actions';
 
-import { Pages } from 'constants/Common';
+import { Pages } from 'constants/common';
 
 import {
     HeaderWrap,
